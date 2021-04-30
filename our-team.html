@@ -65,7 +65,9 @@ permalink: /our-team/
           {% assign female_authors = site.team | where: "tags","female" %} {%
           for author in female_authors %}
           <div class="col-sm-6 col-lg-3 text-center">
-            <div class="wrapper shadow-square-right">
+            <div
+              class="wrapper {% cycle 'shadow-square-right', 'shadow-square-left' %}"
+            >
               <img
                 class="team-card-1"
                 src="{{author.photo }}"
@@ -73,10 +75,15 @@ permalink: /our-team/
                 alt="..."
               />
             </div>
+
             <a href="{{author.url}}">
               <h5 class="fw-bold mt-3 mb-1">{{author.name}}</h5></a
             >
             <p>Writer</p>
+          </div>
+          {% else %}
+          <div class="col-sm-6 col-lg-3 text-center">
+            <p>Coming Soon</p>
           </div>
           {% endfor %}
         </div>
@@ -96,7 +103,9 @@ permalink: /our-team/
           {% assign male_authors = site.team | where: "tags","male" %} {% for
           author in male_authors %}
           <div class="col-sm-6 col-lg-3 text-center">
-            <div class="wrapper shadow-square-left">
+            <div
+              class="wrapper {% cycle 'shadow-square-right', 'shadow-square-left' %}"
+            >
               <img
                 class="team-card-1"
                 src="{{author.photo }}"
@@ -109,12 +118,11 @@ permalink: /our-team/
             >
             <p>Writer</p>
           </div>
-
-          {% endfor %} {% if male_authors.size ==0 %}
+          {% else %}
           <div class="col-sm-6 col-lg-3 text-center">
             <p>Coming Soon</p>
           </div>
-          {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -132,7 +140,9 @@ permalink: /our-team/
           {% assign editors = site.team | where: "tags","editor" %} {% for
           editor in editors %}
           <div class="col-sm-6 col-lg-3 text-center">
-            <div class="wrapper shadow-square-left">
+            <div
+              class="wrapper {% cycle 'shadow-square-right', 'shadow-square-left' %}"
+            >
               <img
                 class="team-card-1"
                 src="{{ editor.photo }}"
@@ -146,11 +156,11 @@ permalink: /our-team/
             <p>Writer</p>
           </div>
 
-          {% endfor %} {% if editors.size ==0 %}
+          {% else %}
           <div class="col-sm-6 col-lg-3 text-center">
             <p>Coming Soon</p>
           </div>
-          {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -168,7 +178,9 @@ permalink: /our-team/
           {% assign managers = site.team | where: "tags","manager" %} {% for
           manager in managers %}
           <div class="col-sm-6 col-lg-3 text-center">
-            <div class="wrapper shadow-square-left">
+            <div
+              class="wrapper {% cycle 'shadow-square-right', 'shadow-square-left' %}"
+            >
               <img
                 class="team-card-1"
                 src="{{ manager.photo }}"
@@ -182,11 +194,11 @@ permalink: /our-team/
             <p>Writer</p>
           </div>
 
-          {% endfor %} {% if managers.size ==0 %}
+          {% else %}
           <div class="col-sm-6 col-lg-3 text-center">
             <p>Coming Soon</p>
           </div>
-          {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -204,7 +216,9 @@ permalink: /our-team/
           {% assign executives = site.team | where: "tags","executive" %} {% for
           executive in executives %}
           <div class="col-sm-6 col-lg-3 text-center">
-            <div class="wrapper shadow-square-left">
+            <div
+              class="wrapper {% cycle 'shadow-square-right', 'shadow-square-left' %}"
+            >
               <img
                 class="team-card-1"
                 src="{{ executive.photo }}"
@@ -218,11 +232,11 @@ permalink: /our-team/
             <p>Writer</p>
           </div>
 
-          {% endfor %} {% if executives.size ==0 %}
+          {% else %}
           <div class="col-sm-6 col-lg-3 text-center">
             <p>Coming Soon</p>
           </div>
-          {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>

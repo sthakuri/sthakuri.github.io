@@ -426,62 +426,42 @@ title: Home
       </div>
       <div class="col-xxl-9">
         <div class="row flex-center g-0">
+          {% assign authors = site.team | where: "tags","writer" %} {% for
+          author in authors | limit: 4 %}
           <div class="col-sm-6 col-lg-3 text-center">
-            <div class="wrapper shadow-square-right">
+            <div
+              class="wrapper {% cycle 'shadow-square-right', 'shadow-square-left' %}"
+            >
               <img
                 class="team-card-1"
-                src="assets/img/authors/Abigail-Luke.png"
+                src="{{author.photo }}"
                 width="200"
                 alt="..."
               />
             </div>
-            <h5 class="fw-bold mt-3 mb-1">Abigail Luke</h5>
+
+            <a href="{{author.url}}">
+              <h5 class="fw-bold mt-3 mb-1">{{author.name}}</h5></a
+            >
             <p>Writer</p>
           </div>
+          {% else %}
           <div class="col-sm-6 col-lg-3 text-center">
-            <div class="wrapper shadow-square-left">
-              <img
-                class="team-card-2"
-                src="assets/img/authors/Aisha-Khan.png"
-                width="200"
-                alt="..."
-              />
-            </div>
-            <h5 class="fw-bold mt-3 mb-1">Aisha Khan</h5>
-            <p>Writer</p>
+            <p>Coming Soon</p>
           </div>
-          <div class="col-sm-6 col-lg-3 text-center">
-            <div class="wrapper shadow-square-right">
-              <img
-                class="team-card-3"
-                src="assets/img/authors/Elizabeth-Maina.png"
-                width="200"
-                alt="..."
-              />
-            </div>
-            <h5 class="fw-bold mt-3 mb-1">Elizabeth Maina</h5>
-            <p>Writer</p>
-          </div>
-          <div class="col-sm-6 col-lg-3 text-center">
-            <div class="wrapper shadow-square-left">
-              <img
-                class="team-card-4"
-                src="assets/img/authors/Fatima-Javed.png"
-                width="200"
-                alt="..."
-              />
-            </div>
-            <h5 class="fw-bold mt-3 mb-1">Fatima Javed</h5>
-            <p>Writer</p>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-auto mx-auto mb-8">
-        <button class="btn btn-lg btn-klean-outline order-0" type="submit">
+        <a
+          href="/our-team"
+          class="btn btn-lg btn-klean-outline order-0"
+          type="submit"
+        >
           <span class="text-gradient fw-bold">View Full Team </span>
-        </button>
+        </a>
       </div>
     </div>
   </div>
