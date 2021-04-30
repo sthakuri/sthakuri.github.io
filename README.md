@@ -1,2 +1,2 @@
-# sthakuri.com
-This is code repo of sthakuri.com
+# izi-mark-publishing
+Web Site

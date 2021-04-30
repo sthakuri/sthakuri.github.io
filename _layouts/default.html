@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>{{ page.title }} - {{ site.title }}, {{ site.description }}</title>
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/assets/img/favicons/favicon.ico"
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/theme.min.css" rel="stylesheet" />
+    <style type="text/css">
+      /* ============ desktop view ============ */
+      @media all and (min-width: 992px) {
+        .navbar .nav-item .dropdown-menu {
+          display: none;
+        }
+        .navbar .nav-item:hover .nav-link {
+        }
+        .navbar .nav-item:hover .dropdown-menu {
+          display: block;
+        }
+        .navbar .nav-item .dropdown-menu {
+          margin-top: 0;
+        }
+      }
+      /* ============ desktop view .end// ============ */
+    </style>
+
+    <style>
+      .output {
+        text-align: center;
+      }
+
+      /* Cursor Styling */
+
+      .cursor::after {
+        content: "";
+        display: inline-block;
+        margin-left: 3px;
+        background-color: black;
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-iteration-count: infinite;
+      }
+      h3.cursor::after {
+        height: 24px;
+        width: 5px;
+      }
+      p.cursor::after {
+        height: 13px;
+        width: 6px;
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        49% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <!-- Navigation -->
+      {% include navigation.html %}
+      <!-- Content -->
+      {{ content }}
+
+      <!-- Footer -->
+      {% include footer.html %}
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/is.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="/assets/js/feather.min.js"></script>
+    <script>
+      feather.replace();
+    </script>
+    <script src="/assets/js/theme.js"></script>
+    <script>
+      // values to keep track of the number of letters typed, which quote to use. etc. Don't change these values.
+      var i = 0,
+        a = 0,
+        isBackspacing = false,
+        isParagraph = false;
+
+      // Typerwrite text content. Use a pipe to indicate the start of the second line "|".
+      var textArray = [
+        "Would you rather soar on your wings or walk by foot?| At IziMarkPublishing only the sky is the limit.",
+        "We would like to take the blind fold off to allow you to see your full potential.| At IziMarkPublishing we make impossible possible.",
+        "It is the imagination that fills in the gaps?| Start writing now.",
+      ];
+
+      // Speed (in milliseconds) of typing.
+      var speedForward = 100, //Typing Speed
+        speedWait = 1000, // Wait between typing and backspacing
+        speedBetweenLines = 1000, //Wait between first and second lines
+        speedBackspace = 25; //Backspace Speed
+
+      //Run the loop
+      typeWriter("output", textArray);
+
+      function typeWriter(id, ar) {
+        var element = $("#" + id),
+          aString = ar[a],
+          eHeader = element.children("h4"), //Header element
+          eParagraph = element.children("p"); //Subheader element
+
+        // Determine if animation should be typing or backspacing
+        if (!isBackspacing) {
+          // If full string hasn't yet been typed out, continue typing
+          if (i < aString.length) {
+            // If character about to be typed is a pipe, switch to second line and continue.
+            if (aString.charAt(i) == "|") {
+              isParagraph = true;
+              eHeader.removeClass("cursor");
+              eParagraph.addClass("cursor");
+              i++;
+              setTimeout(function () {
+                typeWriter(id, ar);
+              }, speedBetweenLines);
+
+              // If character isn't a pipe, continue typing.
+            } else {
+              // Type header or subheader depending on whether pipe has been detected
+              if (!isParagraph) {
+                eHeader.text(eHeader.text() + aString.charAt(i));
+              } else {
+                eParagraph.text(eParagraph.text() + aString.charAt(i));
+              }
+              i++;
+              setTimeout(function () {
+                typeWriter(id, ar);
+              }, speedForward);
+            }
+
+            // If full string has been typed, switch to backspace mode.
+          } else if (i == aString.length) {
+            isBackspacing = true;
+            setTimeout(function () {
+              typeWriter(id, ar);
+            }, speedWait);
+          }
+
+          // If backspacing is enabled
+        } else {
+          // If either the header or the paragraph still has text, continue backspacing
+          if (eHeader.text().length > 0 || eParagraph.text().length > 0) {
+            // If paragraph still has text, continue erasing, otherwise switch to the header.
+            if (eParagraph.text().length > 0) {
+              eParagraph.text(
+                eParagraph.text().substring(0, eParagraph.text().length - 1)
+              );
+            } else if (eHeader.text().length > 0) {
+              eParagraph.removeClass("cursor");
+              eHeader.addClass("cursor");
+              eHeader.text(
+                eHeader.text().substring(0, eHeader.text().length - 1)
+              );
+            }
+            setTimeout(function () {
+              typeWriter(id, ar);
+            }, speedBackspace);
+
+            // If neither head or paragraph still has text, switch to next quote in array and start typing.
+          } else {
+            isBackspacing = false;
+            i = 0;
+            isParagraph = false;
+            a = (a + 1) % ar.length; //Moves to next position in array, always looping back to 0
+            setTimeout(function () {
+              typeWriter(id, ar);
+            }, 50);
+          }
+        }
+      }
+    </script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+  </body>
+</html>
