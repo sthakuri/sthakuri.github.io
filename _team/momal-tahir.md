@@ -2,7 +2,7 @@
 layout: profile
 name: Momal Tahir
 position: Writer
-photo: /assets/img/authors/Momal-Tahir.png
+photo: /assets/img/team/Momal-Tahir.png
 email: abc@gmail.com
 tags: female writer
 

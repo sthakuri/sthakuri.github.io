@@ -2,7 +2,7 @@
 layout: profile
 name: Lorna Enow
 position: Writer
-photo: /assets/img/authors/Lorna-Enow.png
+photo: /assets/img/team/Lorna-Enow.png
 email: abc@gmail.com
 tags: female writer
 

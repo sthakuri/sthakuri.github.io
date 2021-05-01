@@ -2,7 +2,7 @@
 layout: profile
 name: Abigail J. Luke
 position: Writer
-photo: /assets/img/authors/Abigail-Luke.png
+photo: /assets/img/team/Abigail-Luke.png
 email: abc@gmail.com
 tags: female writer
 

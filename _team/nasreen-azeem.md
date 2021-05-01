@@ -2,7 +2,7 @@
 layout: profile
 name: Nasreen Azeem
 position: Writer
-photo: /assets/img/authors/Nasreen-Azeem.png
+photo: /assets/img/team/Nasreen-Azeem.png
 email: abc@gmail.com
 tags: female writer
 

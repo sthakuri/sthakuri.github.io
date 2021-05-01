@@ -2,7 +2,7 @@
 layout: profile
 name: Shruti Badoni
 position: Writer
-photo: /assets/img/authors/Shruti-Badoni.png
+photo: /assets/img/team/Shruti-Badoni.png
 email: abc@gmail.com
 tags: female writer
 

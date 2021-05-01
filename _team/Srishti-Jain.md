@@ -2,7 +2,7 @@
 layout: profile
 name: Srishti Jain
 position: Writer
-photo: /assets/img/authors/Srishti-Jain.png
+photo: /assets/img/team/Srishti-Jain.png
 email: abc@gmail.com
 tags: female writer
 

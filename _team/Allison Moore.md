@@ -2,7 +2,7 @@
 layout: profile
 name: Allison Moore
 position: Writer
-photo: /assets/img/authors/Allison-Moore.png
+photo: /assets/img/team/Allison-Moore.png
 email: abc@gmail.com
 tags: female writer
 

@@ -2,7 +2,7 @@
 layout: profile
 name: Teniola Nafisat Balogun
 position: Writer
-photo: /assets/img/authors/Teniola-Balogun.png
+photo: /assets/img/team/Teniola-Balogun.png
 email: abc@gmail.com
 tags: female writer
 
