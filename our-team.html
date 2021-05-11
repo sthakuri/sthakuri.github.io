@@ -51,21 +51,21 @@ permalink: /our-team/
     ></div>
     <div class="row">
       <div class="col-lg-7 col-xxl-5 mx-auto text-center mt-5">
-        <h5 class="fw-bold fs-3 fs-lg-5 lh-sm mb-5">Our team</h5>
-        <p class="mb-0">
-          One of our missions is to promote Women's rights by allowing Women
-          have a voice world-wide. We are committed to publishing works of
-          female Authors from around the world. We have an Instagram account
-          dedicated to womens’ advancement by forming a strong network of
-          talented women. Our Author team is a support group with the goal of
-          individual success. This team is coordinated by Mark Tyhurst & Mariya
-          Toncheva, based on a vision of offering a forum for authors and
-          vehicle for publication of their works.. If you think you have what it
-          takes to become an Author & you would like to join our team, please
-          send us the first 100 words of your book. This will let us assess your
-          writing skill and your project. If you have any questions comments or
-          concerns please feel free to contact us directly
-          support@izimarkpublishing.com
+        <h5 class="fw-bold fs-3 fs-lg-5 lh-sm mb-5">Our Team</h5>
+        <p class="fs-1 mb-3 pe-xxl-8">
+          One of our missions is to provide women a platform to achieve a voice
+          world-wide. We are committed to publishing works of female Au-thors
+          from around the world. We have an Instagram account dedicated to
+          womens’ advancement, directed at forming a strong network of talented
+          women authors. Our Author team is a support group with the goal of
+          individual success.
+        </p>
+        <p class="fs-1 mb-3 pe-xxl-8">
+          If you think you have what it takes to become an Author & you would
+          like to join our team, please send us the first 100 words of your
+          book. This will let us assess your writing skill and your project. If
+          you have any questions comments or concerns please feel free to
+          contact us directly at support@izimarkpublishing.com
         </p>
       </div>
     </div>
@@ -97,21 +97,27 @@ permalink: /our-team/
       id="female-authors"
       class="row justify-content-center mb-6 circle-blend circle-warning"
     >
-      <div class="col-lg-6 text-center mx-auto mb-7">
-        <p class="mb-0">
-          <span class="fw-bold">Female Authors</span>
-        </p>
-      </div>
       <div class="col-xxl-9">
         <div class="row flex-center g-0">
-          {% assign female_authors = site.team | where: "tags","female" %} {%
+          {% assign female_authors = site.team | where: "tags","writer" %} {%
           for author in female_authors %}
           <div class="col-sm-6 col-lg-3 text-center">
             <div
-              class="wrapper {% cycle 'shadow-square-right', 'shadow-square-left' %}"
+              class="
+                wrapper
+                {%
+                cycle
+                'shadow-square-right', 'shadow-square-left'
+                %}
+              "
             >
               <img
-                class="team-card-1"
+                class="
+                  {%
+                  cycle
+                  'team-card-1', 'team-card-2', 'team-card-3', 'team-card-4'
+                  %}
+                "
                 src="{{author.photo }}"
                 width="200"
                 alt="..."
@@ -131,7 +137,7 @@ permalink: /our-team/
         </div>
       </div>
     </div>
-    <div
+    <!-- <div
       id="male-authors"
       class="row justify-content-center mb-6 circle-blend circle-warning"
     >
@@ -243,8 +249,8 @@ permalink: /our-team/
           {% endfor %}
         </div>
       </div>
-    </div>
-    <div
+    </div> -->
+    <!-- <div
       id="executives"
       class="row justify-content-center mb-6 circle-blend circle-warning"
     >
@@ -281,7 +287,7 @@ permalink: /our-team/
           {% endfor %}
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   <!-- end of .container-->
 </section>

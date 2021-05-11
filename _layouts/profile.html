@@ -38,12 +38,34 @@ layout: default
           <p class="fs-1 mb-3 pe-xxl-8">
             {{ content | markdownify }}
           </p>
-          <a href="mailto:{{page.email}}"
+          <!-- <a href="mailto:{{page.email}}"
             class="btn btn-link btn-klean-outline order-0"
             type="submit"
           >
             <span class="text-gradient fw-bold">Contact {{ page.name }} </span>
-        </a>
+        </a> -->
     </div>
+    {% assign books = site.store | where: "category","Book" %} 
+      {% assign books_writer = books | where: "writer", page.name %} 
+      {% if books_writer.size >0 %}
+    <div class="row">
+      <div class="col-lg-7 col-xxl-5 mx-auto mt-4">
+        <h5 class="fw-bold fs-3 lh-sm mb-1">Books by {{ page.name }} </h5>
+      </div>
+    </div>
+    <!-- BOOKS -->
+    <div class="row">
+      <!-- Start -->
+      {% for book in
+      books_writer %}
+      <div class="col-md-3 py-5 text-center">
+        <!-- product -->
+        {{ book.content }}
+        <!-- end product -->
+      </div>
+      {% endfor %}
+      <!-- End-->
+    </div>
+    {% endif %}
   </div>
 </section>
