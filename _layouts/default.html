@@ -1,145 +1,36 @@
 <!DOCTYPE html>
-<html lang="en-US" dir="ltr">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="og:title" property="og:title" content="IziMarkPublishing" />
-    <meta name="description" content="Share your words with the world" />
-    <link rel="canonical" href="https://izimarkpublishing.com/" />
-    <!-- ===============================================-->
-    <!--    Document Title-->
-    <!-- ===============================================-->
-    <title>{{ page.title }} - {{ site.title }}, {{ site.description }}</title>
+<html lang="{{ site.lang | default: 'en-US' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html', '' | absolute_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }} Feed"
+    href="{{ '/feed.xml' | absolute_url }}">
+  {% if site.favicon and site.favicon != "" %}
+  <link rel="shortcut icon" href="{{ site.favicon | relative_url }}" type="image/png" />
+  {% endif %}
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%7CNoto+Serif:400,400i,700,700i&display=swap" rel="stylesheet">
+  <link href="{{ '/assets/css/style.css' | relative_url }}" rel="stylesheet">
+</head>
+<body>
 
-    <!-- ===============================================-->
-    <!--    Favicons-->
-    <!-- ===============================================-->
-
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="/assets/img/favicons/favicon.ico"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/assets/img/favicons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/assets/img/favicons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/assets/img/favicons/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/assets/img/favicons/site.webmanifest" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-
-    <!-- ===============================================-->
-    <!--    Stylesheets-->
-    <!-- ===============================================-->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/assets/css/theme.min.css" rel="stylesheet" />
-    <link href="/assets/css/custom.css" rel="stylesheet" />
-    <style type="text/css">
-      /* ============ desktop view ============ */
-      @media all and (min-width: 992px) {
-        .navbar .nav-item .dropdown-menu {
-          display: none;
-        }
-        .navbar .nav-item:hover .nav-link {
-        }
-        .navbar .nav-item:hover .dropdown-menu {
-          display: block;
-        }
-        .navbar .nav-item .dropdown-menu {
-          margin-top: 0;
-        }
-      }
-      /* ============ desktop view .end// ============ */
-    </style>
-
-    <style>
-      .output {
-        text-align: center;
-      }
-
-      /* Cursor Styling */
-
-      .cursor::after {
-        content: "";
-        display: inline-block;
-        margin-left: 3px;
-        background-color: black;
-        animation-name: blink;
-        animation-duration: 0.5s;
-        animation-iteration-count: infinite;
-      }
-      h3.cursor::after {
-        height: 24px;
-        width: 5px;
-      }
-      p.cursor::after {
-        height: 13px;
-        width: 6px;
-      }
-
-      @keyframes blink {
-        0% {
-          opacity: 1;
-        }
-        49% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 0;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <!-- ===============================================-->
-    <!--    Main Content-->
-    <!-- ===============================================-->
-    <main class="main" id="top">
-      <!-- Navigation -->
-      {% include navigation.html %}
-      <!-- Content -->
-      {{ content }}
-
-      <!-- Footer -->
+  <div id="page" class="site">
+    <div class="inner">
+      {% include header.html %}
+      {{content}}
       {% include footer.html %}
-    </main>
-    <!-- ===============================================-->
-    <!--    End of Main Content-->
-    <!-- ===============================================-->
+    </div><!-- .inner -->
+  </div><!-- .site -->
 
-    <!-- ===============================================-->
-    <!--    JavaScripts-->
-    <!-- ===============================================-->
-    <script src="/assets/js/jquery-3.6.0.min.js"></script>
-    <script src="/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/is.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="/assets/js/feather.min.js"></script>
-    <script>
-      feather.replace();
-    </script>
-    <script src="/assets/js/theme.js"></script>
-    <script src="/assets/js/floating-quotations.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&amp;display=swap"
-      rel="stylesheet"
-    />
-  </body>
+  <!-- Scripts -->
+  {% if site.google_analytics %}
+    {% include google_analytics.html %}
+  {% endif %}
+  <script src="{{ '/assets/js/plugins.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/custom.js' | relative_url }}"></script>
+
+</body>
 </html>
