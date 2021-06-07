@@ -1,6 +1,6 @@
 ---
 title: Graphic Designer On The Road
-date: 2020-01-05 00:00:00 -08:00
+date: 2020-01-04 16:00:00 -08:00
 tags:
 - tips
 - work

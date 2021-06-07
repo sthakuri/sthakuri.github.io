@@ -1,6 +1,6 @@
 ---
 title: How to Set Up Your New iPhone 6 the Right Way
-date: 2019-01-02 00:00:00 -08:00
+date: 2019-01-01 16:00:00 -08:00
 tags:
 - tips
 - design
