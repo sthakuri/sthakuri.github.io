@@ -1,6 +1,6 @@
 ---
 title: The Advantages & Disadvantages of Working from Home
-date: 2019-01-01 00:00:00 Z
+date: 2019-01-01 00:00:00 -08:00
 tags:
 - tips
 - work
