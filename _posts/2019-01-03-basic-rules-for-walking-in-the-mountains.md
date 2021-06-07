@@ -1,6 +1,6 @@
 ---
 title: Basic Rules For Walking In The Mountains
-date: 2019-01-02 16:00:00 -08:00
+date: 2019-01-03 00:00:00 -08:00
 tags:
 - tips
 - work

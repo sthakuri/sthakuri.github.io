@@ -1,6 +1,6 @@
 ---
 title: 'Review: A Week With the Apple Watch'
-date: 2019-01-03 16:00:00 -08:00
+date: 2019-01-04 00:00:00 -08:00
 tags:
 - tips
 - work
