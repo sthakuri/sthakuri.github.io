@@ -1,13 +1,10 @@
 ---
-title: How to Set Up Your New iPhone 6 the Right Way
-date: 2019-01-02 00:00:00 -08:00
-tags:
-- tips
-- design
 layout: post
-description: The iPhone 6 and Phone 6 Plus are smartphones designed and marketed by
-  Apple Inc.
+title: "How to Set Up Your New iPhone 6 the Right Way"
+description: "The iPhone 6 and Phone 6 Plus are smartphones designed and marketed by Apple Inc."
+date: 2019-01-02
 feature_image: images/iphone-6.jpg
+tags: [tips, design]
 ---
 
 The **iPhone 6** and **iPhone 6 Plus** are [smartphones](https://en.wikipedia.org/wiki/Smartphone) designed and marketed by Apple Inc. The devices are part of the iPhone series and were unveiled on September 9, 2014, and released on September 19, 2014. The iPhone 6 and iPhone 6 Plus jointly serve as successors to the iPhone 5C and iPhone 5S.
