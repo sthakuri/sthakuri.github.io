@@ -41,7 +41,7 @@
   .layout { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
 
   /* ---- Nav ---- */
-  .sidebar { padding: 3.5rem 0 2rem; }
+  .sidebar { padding: 4.5rem 0 2rem; }
   .sidebar .name { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; margin-bottom: 0.35rem; }
   .sidebar .role { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.75rem; }
   .sidebar nav { display: flex; flex-direction: column; gap: 0.6rem; }
@@ -81,7 +81,7 @@
   }
 
   .edu-item { padding: 1rem 0; border-top: 1px solid var(--rule); }
-  .edu-item:first-of-type { border-top: none; padding-top: 0; }
+  h2 + .edu-item { border-top: none; padding-top: 0; }
   .edu-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.15rem; }
   .edu-item .org { color: var(--muted); font-size: 0.9rem; }
 
@@ -109,11 +109,12 @@
     <div class="col-lg-3">
       <div class="sidebar">
         <div class="name">Suvash Shah Thakuri</div>
-        <div class="role"><!-- one-line role/title --></div>
+        <div class="role">Systems Engineer &middot; PhD Researcher</div>
         <nav>
           <a href="#home">Home</a>
           <a href="#experience">Experience &amp; Education</a>
           <a href="#projects">Projects</a>
+          <a href="#resume">Resume</a>
         </nav>
       </div>
     </div>
@@ -233,6 +234,12 @@
       <section id="projects">
         <h2>Projects</h2>
         <!-- toy project entry goes here -->
+      </section>
+
+      <section id="resume">
+        <h2>Resume</h2>
+        <p>Download a PDF copy of my r&eacute;sum&eacute; for the full work history and details.</p>
+        <p><a href="SuvashShah_Resume.pdf" target="_blank" rel="noopener">Download r&eacute;sum&eacute; (PDF) &rarr;</a></p>
       </section>
 
     </div>
