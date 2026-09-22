@@ -10,8 +10,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css">
-
 <style>
   :root {
     --bg: #F7F6F2;
@@ -27,6 +25,7 @@
   html { scroll-behavior: smooth; }
 
   body {
+    margin: 0;
     background: var(--bg);
     color: var(--ink);
     font-family: var(--sans);
@@ -36,215 +35,263 @@
   a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
   a:hover { border-bottom-color: currentColor; }
 
-  h1, h2, h3 { font-family: var(--serif); color: var(--ink); }
+  h1, h2, h3 { font-family: var(--serif); color: var(--ink); margin: 0; }
 
-  .layout { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
-
-  /* ---- Nav ---- */
-  .sidebar { padding: 4.5rem 0 2rem; }
-  .sidebar .name { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; margin-bottom: 0.35rem; }
-  .sidebar .role { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.75rem; }
-  .sidebar nav { display: flex; flex-direction: column; gap: 0.6rem; }
-  .sidebar nav a { color: var(--ink); font-size: 0.92rem; border: none; }
-  .sidebar nav a:hover { color: var(--accent); }
-
-  @media (min-width: 992px) {
-    .sidebar { position: sticky; top: 2.5rem; height: fit-content; }
-  }
-
-  /* ---- Sections: fill these in, one per commit ---- */
-  section { padding: 3.25rem 0; border-bottom: 1px solid var(--rule); }
-  section:last-child { border-bottom: none; }
-  section h2 { font-size: 1.4rem; font-weight: 500; margin-bottom: 2rem; }
-
-  footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.82rem; }
+  .layout { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
 
   a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-</style>
-<style>
-    .entry {
-    display: grid;
-    grid-template-columns: 8.5rem 1fr;
-    gap: 1.25rem;
-    padding: 1.4rem 0;
-    border-top: 1px solid var(--rule);
+
+  /* ---- Letterhead ---- */
+  .page-header { padding: 3.5rem 0 2rem; border-bottom: 2px solid var(--ink); }
+  .page-header .name { font-size: 1.9rem; font-weight: 600; }
+  .page-header .role { color: var(--muted); font-size: 1rem; margin-top: 0.4rem; }
+  .page-header .contact { color: var(--muted); font-size: 0.85rem; margin-top: 1.1rem; }
+  .page-header .contact .sep { margin: 0 0.5em; color: var(--rule); }
+
+  /* ---- Running nav ---- */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
   }
+  .topnav .layout { display: flex; flex-wrap: wrap; gap: 1.5rem; padding-top: 0.85rem; padding-bottom: 0.85rem; }
+  .topnav a {
+    color: var(--ink);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none;
+  }
+  .topnav a:hover { color: var(--accent); }
+
+  /* ---- Sections ---- */
+  .page-main { padding-top: 0.5rem; }
+  section { padding: 2.75rem 0; border-bottom: 1px solid var(--rule); }
+  section:last-of-type { border-bottom: none; }
+  section .label {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    padding-bottom: 0.6rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  section p { font-size: 0.96rem; margin: 0 0 1em; }
+  section p:last-child { margin-bottom: 0; }
+
+  /* ---- Experience entries ---- */
+  .entry { padding: 1.25rem 0; border-top: 1px solid var(--rule); }
   .entry:first-of-type { border-top: none; padding-top: 0; }
-  .entry .period { font-size: 0.82rem; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 0.2rem; }
-  .entry h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.15rem; }
-  .entry .org { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.6rem; }
-  .entry p.desc { font-size: 0.94rem; color: var(--ink); margin: 0; }
-
-  @media (max-width: 575px) {
-    .entry { grid-template-columns: 1fr; gap: 0.35rem; }
+  .entry .period {
+    font-size: 0.76rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 0.4rem;
   }
+  .entry h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.15rem; }
+  .entry .org { font-style: italic; color: var(--muted); font-size: 0.92rem; margin-bottom: 0.6rem; }
+  .entry p.desc { font-size: 0.92rem; color: var(--ink); margin: 0; }
 
+  /* ---- Education ---- */
   .edu-item { padding: 1rem 0; border-top: 1px solid var(--rule); }
-  h2 + .edu-item { border-top: none; padding-top: 0; }
+  .edu-item:first-of-type { border-top: none; padding-top: 0; }
   .edu-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.15rem; }
-  .edu-item .org { color: var(--muted); font-size: 0.9rem; }
+  .edu-item .org { font-style: italic; color: var(--muted); font-size: 0.9rem; }
 
+  /* ---- Projects ---- */
+  .project-item { padding: 1rem 0; border-top: 1px solid var(--rule); }
+  .project-item:first-of-type { border-top: none; padding-top: 0; }
+  .project-item h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.15rem; }
+  .project-item .link { font-size: 0.88rem; }
+
+  /* ---- Skills ---- */
+  .skills { margin-top: 2rem; }
   .skill-group { margin-bottom: 1.1rem; }
-  .skill-group .label { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.4rem; }
+  .skill-group .label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    padding-bottom: 0;
+    margin-bottom: 0.4rem;
+    border-bottom: none;
+  }
   .skill-group .items { font-size: 0.94rem; }
-</style>
-<style>
-    .hero { padding: 4.5rem 0 3rem; }
-    .hero h1 {
-      font-size: clamp(2.1rem, 4vw, 3rem);
-      font-weight: 500;
-      line-height: 1.15;
-      max-width: 20ch;
-      margin-bottom: 1.25rem;
-    }
-    .hero p { color: var(--muted); font-size: 1.05rem; max-width: 62ch; }
+
+  footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.82rem; }
 </style>
 </head>
 <body>
 
-<div class="layout">
-  <div class="row gx-5">
+<header class="page-header">
+  <div class="layout">
+    <h1 class="name">Suvash Shah Thakuri</h1>
+    <p class="role">Software Engineer &middot; PhD Researcher</p>
+    <p class="contact">
+      <a href="mailto:suvash.shah@ndsu.edu">suvash.shah@ndsu.edu</a>
+      <span class="sep">&middot;</span>
+      <a href="https://linkedin.com/in/sthakuri" target="_blank" rel="noopener">linkedin.com/in/sthakuri</a>
+      <span class="sep">&middot;</span>
+      Pittsburg, CA
+    </p>
+  </div>
+</header>
 
-    <div class="col-lg-3">
-      <div class="sidebar">
-        <div class="name">Suvash Shah Thakuri</div>
-        <div class="role">Systems Engineer &middot; PhD Researcher</div>
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#experience">Experience &amp; Education</a>
-          <a href="#projects">Projects</a>
-          <a href="#resume">Resume</a>
-        </nav>
+<nav class="topnav">
+  <div class="layout">
+    <a href="#summary">Summary</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#resume">Resume</a>
+  </div>
+</nav>
+
+<main class="layout page-main">
+
+  <section id="summary">
+    <h2 class="label">Summary</h2>
+    <p>
+      15+ years designing and modernizing enterprise systems across state government, automotive
+      manufacturing, and biotech research. Currently leading Audit Management System Modernization Project at the California State Controller's Office, and pursuing a
+      PhD in Computer Science at North Dakota State University with a research focus on software security
+      and systems modernization &mdash; specifically concurrency-aware C-to-Rust migration.
+    </p>
+  </section>
+
+  <section id="experience">
+    <h2 class="label">Experience</h2>
+
+    <div class="entry">
+      <div class="period">Aug 2024&ndash;Present</div>
+      <h3>Information Technology Specialist I</h3>
+      <div class="org">California State Controller's Office &mdash; Sacramento, CA</div>
+      <p class="desc">Leading modernization of the Audit Management System (AMS2), including migration
+        from .NET Core 2.0 to .NET 8.0, secure application design, and a data synchronization pipeline
+        between the LEA project and AMS2. Support the School Facility Program and lead development of
+        the Transportation Development Act program.</p>
+    </div>
+
+    <div class="entry">
+      <div class="period">2021&ndash;2024</div>
+      <h3>Senior Software Engineer</h3>
+      <div class="org">Tesla, Inc. &mdash; Fremont, CA</div>
+      <p class="desc">Engineered modules of Warp, Tesla's in-house ERP, on .NET Core 6, C#, Angular 12,
+        and SQL Server. Built a global-scale Material Requirements Planning system handling inventory,
+        procurement, and forecasting across 1,200+ warehouses.</p>
+    </div>
+
+    <div class="entry">
+      <div class="period">2020&ndash;Present</div>
+      <h3>Technical Staff</h3>
+      <div class="org">Dhuni Software LLC &mdash; California</div>
+      <p class="desc">Leads delivery of applications on .NET Core, SQL Server, MongoDB, Elasticsearch,
+        and D3.js for biotech research clients, including a graph-based visualization tool for
+        large-molecule purification and a digital Assay Request approval platform.</p>
+    </div>
+
+    <div class="entry">
+      <div class="period">2018&ndash;2020</div>
+      <h3>.NET Full Stack Developer</h3>
+      <div class="org">County of San Mateo &mdash; Redwood City, CA</div>
+      <p class="desc">Modernized legacy financial systems, added role-based access control, and tuned
+        Oracle queries and ADO.NET data access layers for County agency reporting.</p>
+    </div>
+
+    <div class="entry">
+      <div class="period">2010&ndash;2017</div>
+      <h3>Software Engineer / Application Developer</h3>
+      <div class="org">Deerwalk Nepal &middot; Bracket Global LLC &middot; 12th Wonder LLC</div>
+      <p class="desc">Developed browser automation tools, healthcare analytics, and scheduling software;
+        led early development of biometric attendance systems with fingerprint recognition.</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="label">Education</h2>
+
+    <div class="edu-item">
+      <h3>Ph.D., Computer Science (Software and Security)</h3>
+      <div class="org">North Dakota State University &mdash; 2025&ndash;Present &middot; Advisor: Dr. Malik</div>
+    </div>
+    <div class="edu-item">
+      <h3>M.S., Computer Science</h3>
+      <div class="org">Maharishi International University &mdash; 2017</div>
+    </div>
+    <div class="edu-item">
+      <h3>B.E., Computer Engineering</h3>
+      <div class="org">Institute of Engineering, Tribhuvan University, Nepal &mdash; 2010</div>
+    </div>
+
+    <div class="skills">
+      <div class="skill-group">
+        <div class="label">Languages</div>
+        <div class="items">C#, SQL, JavaScript / jQuery</div>
+      </div>
+      <div class="skill-group">
+        <div class="label">Frameworks &amp; web</div>
+        <div class="items">.NET, ASP.NET MVC, Web API, Blazor, Bootstrap, HTML, CSS</div>
+      </div>
+      <div class="skill-group">
+        <div class="label">Databases</div>
+        <div class="items">SQL Server, Oracle, MySQL, Firebase, MongoDB</div>
+      </div>
+      <div class="skill-group">
+        <div class="label">Tools &amp; practices</div>
+        <div class="items">Visual Studio, VS Code, Git, SVN, Jira, SSRS, Agile, TDD, SOLID</div>
       </div>
     </div>
+  </section>
 
-    <div class="col-lg-9">
-            
-      <!-- intro / summary goes here -->
-      <section id="home" class="hero">
-        <h1>Systems engineer modernizing government infrastructure, researching what comes after it.</h1>
-        <p>
-          15+ years designing and modernizing enterprise systems across state government, automotive
-          manufacturing, and biotech research. Currently leading the .NET Core&nbsp;2.0&nbsp;&rarr;&nbsp;.NET&nbsp;8.0
-          migration of the Audit Management System at the California State Controller's Office, and pursuing a
-          PhD in Computer Science at North Dakota State University with a research focus on software security
-          and systems modernization &mdash; specifically concurrency-aware C-to-Rust migration.
-        </p>
-        <p>
-          <a href="mailto:suv.sfo@gmail.com">suv.sfo@gmail.com</a> &middot;
-          <a href="https://linkedin.com/in/sthakuri" target="_blank" rel="noopener">linkedin.com/in/sthakuri</a>
-          &middot; Pittsburg, CA
-        </p>
-      </section>
-      
-      <!-- work history and degrees go here -->
-      <section id="experience">
-        <h2>Experience &amp; Education</h2>        
-        <div class="entry">
-          <div class="period">Aug 2024&ndash;Present</div>
-          <div>
-            <h3>Information Technology Specialist I</h3>
-            <div class="org">California State Controller's Office &mdash; Sacramento, CA</div>
-            <p class="desc">Leading modernization of the Audit Management System (AMS2), including migration
-              from .NET Core 2.0 to .NET 8.0, secure application design, and a data synchronization pipeline
-              between the LEA project and AMS2. Support the School Facility Program and lead development of
-              the Transportation Development Act program.</p>
-          </div>
-        </div>
+  <section id="projects">
+    <h2 class="label">Projects</h2>
 
-        <div class="entry">
-          <div class="period">2021&ndash;2024</div>
-          <div>
-            <h3>Senior Software Engineer</h3>
-            <div class="org">Tesla, Inc. &mdash; Fremont, CA</div>
-            <p class="desc">Engineered modules of Warp, Tesla's in-house ERP, on .NET Core 6, C#, Angular 12,
-              and SQL Server. Built a global-scale Material Requirements Planning system handling inventory,
-              procurement, and forecasting across 1,200+ warehouses.</p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="period">2020&ndash;Present</div>
-          <div>
-            <h3>Technical Staff</h3>
-            <div class="org">Dhuni Software LLC &mdash; California</div>
-            <p class="desc">Leads delivery of applications on .NET Core, SQL Server, MongoDB, Elasticsearch,
-              and D3.js for biotech research clients, including a graph-based visualization tool for
-              large-molecule purification and a digital Assay Request approval platform.</p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="period">2018&ndash;2020</div>
-          <div>
-            <h3>.NET Full Stack Developer</h3>
-            <div class="org">County of San Mateo &mdash; Redwood City, CA</div>
-            <p class="desc">Modernized legacy financial systems, added role-based access control, and tuned
-              Oracle queries and ADO.NET data access layers for County agency reporting.</p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="period">2010&ndash;2017</div>
-          <div>
-            <h3>Software Engineer / Application Developer</h3>
-            <div class="org">Deerwalk Nepal &middot; Bracket Global LLC &middot; 12th Wonder LLC</div>
-            <p class="desc">Developed browser automation tools, healthcare analytics, and scheduling software;
-              led early development of biometric attendance systems with fingerprint recognition.</p>
-          </div>
-        </div>
-
-        <h2 class="mt-5">Education</h2>
-
-        <div class="edu-item">
-          <h3>Ph.D., Computer Science (Software and Security)</h3>
-          <div class="org">North Dakota State University &mdash; 2025&ndash;Present &middot; Advisor: Dr. Malik</div>
-        </div>
-        <div class="edu-item">
-          <h3>M.S., Computer Science</h3>
-          <div class="org">Maharishi International University &mdash; 2017</div>
-        </div>
-        <div class="edu-item">
-          <h3>B.E., Computer Engineering</h3>
-          <div class="org">Institute of Engineering, Tribhuvan University, Nepal &mdash; 2010</div>
-        </div>
-
-        <div class="mt-5">
-          <div class="skill-group">
-            <div class="label">Languages</div>
-            <div class="items">C#, SQL, JavaScript / jQuery</div>
-          </div>
-          <div class="skill-group">
-            <div class="label">Frameworks &amp; web</div>
-            <div class="items">.NET, ASP.NET MVC, Web API, Blazor, Bootstrap, HTML, CSS</div>
-          </div>
-          <div class="skill-group">
-            <div class="label">Databases</div>
-            <div class="items">SQL Server, Oracle, MySQL, Firebase, MongoDB</div>
-          </div>
-          <div class="skill-group">
-            <div class="label">Tools &amp; practices</div>
-            <div class="items">Visual Studio, VS Code, Git, SVN, Jira, SSRS, Agile, TDD, SOLID</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Commit 3: Projects -->
-      <section id="projects">
-        <h2>Projects</h2>
-        <!-- toy project entry goes here -->
-      </section>
-
-      <section id="resume">
-        <h2>Resume</h2>
-        <p>Download a PDF copy of my r&eacute;sum&eacute; for the full work history and details.</p>
-        <p><a href="SuvashShah_Resume.pdf" target="_blank" rel="noopener">Download r&eacute;sum&eacute; (PDF) &rarr;</a></p>
-      </section>
-
+    <div class="project-item">
+      <h3>Happiness Index</h3>
+      <p class="desc">San Francisco Happiness Index &mdash; integrates open civic datasets with survey-based
+        indicators in a relational database to measure city-wide happiness metrics. Node.js application with
+        MongoDB and SQL data stores, containerized with Docker Compose.</p>
+      <p class="link"><a href="https://github.com/sthakuri/happiness-index" target="_blank" rel="noopener">github.com/sthakuri/happiness-index</a></p>
     </div>
-  </div>
-</div>
+
+    <div class="project-item">
+      <h3>Offline Literature Review Assistant</h3>
+      <p class="desc">LitRAG &mdash; a local, offline literature-review assistant for managing a personal research
+        paper library and reading papers alongside an AI chat grounded in the document's content, with page
+        citations. Built on .NET 10 and Blazor, using Ollama (llama3.1:8b, nomic-embed-text) for local
+        inference and SQLite for metadata, embeddings, and chat history.</p>
+      <p class="link"><a href="https://github.com/sthakuri/litrag" target="_blank" rel="noopener">github.com/sthakuri/litrag</a></p>
+    </div>
+
+    <div class="project-item">
+      <h3>Vibe Inspector</h3>
+      <p class="desc">A VS Code extension for bidirectional quality checks on AI-assisted code generation:
+        scores prompts for risk and ambiguity before submission, then runs post-generation security analysis
+        against CWE standards, technical-debt detection, and architectural-consistency checks. Built in
+        TypeScript, with optional Claude Code chat inspection and Anthropic API integration.</p>
+      <p class="link"><a href="https://github.com/sthakuri/vibe-inspector" target="_blank" rel="noopener">github.com/sthakuri/vibe-inspector</a></p>
+    </div>
+  </section>
+
+  <section id="resume">
+    <h2 class="label">Resume</h2>
+    <p>Download a PDF copy of my r&eacute;sum&eacute; for the full work history and details.</p>
+    <p><a href="SuvashShah_Resume.pdf" target="_blank" rel="noopener">Download r&eacute;sum&eacute; (PDF) &rarr;</a></p>
+  </section>
+
+</main>
 
 <footer>
   <div class="layout">&copy; 2026 Suvash Shah Thakuri</div>
