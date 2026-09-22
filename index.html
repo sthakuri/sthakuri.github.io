@@ -89,6 +89,17 @@
   .skill-group .label { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.4rem; }
   .skill-group .items { font-size: 0.94rem; }
 </style>
+<style>
+    .hero { padding: 4.5rem 0 3rem; }
+    .hero h1 {
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      font-weight: 500;
+      line-height: 1.15;
+      max-width: 20ch;
+      margin-bottom: 1.25rem;
+    }
+    .hero p { color: var(--muted); font-size: 1.05rem; max-width: 62ch; }
+</style>
 </head>
 <body>
 
@@ -108,17 +119,27 @@
     </div>
 
     <div class="col-lg-9">
-
-      <!-- Commit 1: Home -->
-      <section id="home">
-        <h2>Home</h2>
-        <!-- intro / summary goes here -->
+            
+      <!-- intro / summary goes here -->
+      <section id="home" class="hero">
+        <h1>Systems engineer modernizing government infrastructure, researching what comes after it.</h1>
+        <p>
+          15+ years designing and modernizing enterprise systems across state government, automotive
+          manufacturing, and biotech research. Currently leading the .NET Core&nbsp;2.0&nbsp;&rarr;&nbsp;.NET&nbsp;8.0
+          migration of the Audit Management System at the California State Controller's Office, and pursuing a
+          PhD in Computer Science at North Dakota State University with a research focus on software security
+          and systems modernization &mdash; specifically concurrency-aware C-to-Rust migration.
+        </p>
+        <p>
+          <a href="mailto:suv.sfo@gmail.com">suv.sfo@gmail.com</a> &middot;
+          <a href="https://linkedin.com/in/sthakuri" target="_blank" rel="noopener">linkedin.com/in/sthakuri</a>
+          &middot; Pittsburg, CA
+        </p>
       </section>
-
-      <!-- Commit 2: Experience & Education -->
+      
+      <!-- work history and degrees go here -->
       <section id="experience">
-        <h2>Experience &amp; Education</h2>
-        <!-- work history and degrees go here -->
+        <h2>Experience &amp; Education</h2>        
         <div class="entry">
           <div class="period">Aug 2024&ndash;Present</div>
           <div>
