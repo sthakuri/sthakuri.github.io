@@ -62,6 +62,33 @@
   a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
+<style>
+    .entry {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: 1.25rem;
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .entry:first-of-type { border-top: none; padding-top: 0; }
+  .entry .period { font-size: 0.82rem; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 0.2rem; }
+  .entry h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.15rem; }
+  .entry .org { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.6rem; }
+  .entry p.desc { font-size: 0.94rem; color: var(--ink); margin: 0; }
+
+  @media (max-width: 575px) {
+    .entry { grid-template-columns: 1fr; gap: 0.35rem; }
+  }
+
+  .edu-item { padding: 1rem 0; border-top: 1px solid var(--rule); }
+  .edu-item:first-of-type { border-top: none; padding-top: 0; }
+  .edu-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.15rem; }
+  .edu-item .org { color: var(--muted); font-size: 0.9rem; }
+
+  .skill-group { margin-bottom: 1.1rem; }
+  .skill-group .label { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.4rem; }
+  .skill-group .items { font-size: 0.94rem; }
+</style>
 </head>
 <body>
 
@@ -92,6 +119,93 @@
       <section id="experience">
         <h2>Experience &amp; Education</h2>
         <!-- work history and degrees go here -->
+        <div class="entry">
+          <div class="period">Aug 2024&ndash;Present</div>
+          <div>
+            <h3>Information Technology Specialist I</h3>
+            <div class="org">California State Controller's Office &mdash; Sacramento, CA</div>
+            <p class="desc">Leading modernization of the Audit Management System (AMS2), including migration
+              from .NET Core 2.0 to .NET 8.0, secure application design, and a data synchronization pipeline
+              between the LEA project and AMS2. Support the School Facility Program and lead development of
+              the Transportation Development Act program.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="period">2021&ndash;2024</div>
+          <div>
+            <h3>Senior Software Engineer</h3>
+            <div class="org">Tesla, Inc. &mdash; Fremont, CA</div>
+            <p class="desc">Engineered modules of Warp, Tesla's in-house ERP, on .NET Core 6, C#, Angular 12,
+              and SQL Server. Built a global-scale Material Requirements Planning system handling inventory,
+              procurement, and forecasting across 1,200+ warehouses.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="period">2020&ndash;Present</div>
+          <div>
+            <h3>Technical Staff</h3>
+            <div class="org">Dhuni Software LLC &mdash; California</div>
+            <p class="desc">Leads delivery of applications on .NET Core, SQL Server, MongoDB, Elasticsearch,
+              and D3.js for biotech research clients, including a graph-based visualization tool for
+              large-molecule purification and a digital Assay Request approval platform.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="period">2018&ndash;2020</div>
+          <div>
+            <h3>.NET Full Stack Developer</h3>
+            <div class="org">County of San Mateo &mdash; Redwood City, CA</div>
+            <p class="desc">Modernized legacy financial systems, added role-based access control, and tuned
+              Oracle queries and ADO.NET data access layers for County agency reporting.</p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="period">2010&ndash;2017</div>
+          <div>
+            <h3>Software Engineer / Application Developer</h3>
+            <div class="org">Deerwalk Nepal &middot; Bracket Global LLC &middot; 12th Wonder LLC</div>
+            <p class="desc">Developed browser automation tools, healthcare analytics, and scheduling software;
+              led early development of biometric attendance systems with fingerprint recognition.</p>
+          </div>
+        </div>
+
+        <h2 class="mt-5">Education</h2>
+
+        <div class="edu-item">
+          <h3>Ph.D., Computer Science (Software and Security)</h3>
+          <div class="org">North Dakota State University &mdash; 2025&ndash;Present &middot; Advisor: Dr. Malik</div>
+        </div>
+        <div class="edu-item">
+          <h3>M.S., Computer Science</h3>
+          <div class="org">Maharishi International University &mdash; 2017</div>
+        </div>
+        <div class="edu-item">
+          <h3>B.E., Computer Engineering</h3>
+          <div class="org">Institute of Engineering, Tribhuvan University, Nepal &mdash; 2010</div>
+        </div>
+
+        <div class="mt-5">
+          <div class="skill-group">
+            <div class="label">Languages</div>
+            <div class="items">C#, SQL, JavaScript / jQuery</div>
+          </div>
+          <div class="skill-group">
+            <div class="label">Frameworks &amp; web</div>
+            <div class="items">.NET, ASP.NET MVC, Web API, Blazor, Bootstrap, HTML, CSS</div>
+          </div>
+          <div class="skill-group">
+            <div class="label">Databases</div>
+            <div class="items">SQL Server, Oracle, MySQL, Firebase, MongoDB</div>
+          </div>
+          <div class="skill-group">
+            <div class="label">Tools &amp; practices</div>
+            <div class="items">Visual Studio, VS Code, Git, SVN, Jira, SSRS, Agile, TDD, SOLID</div>
+          </div>
+        </div>
       </section>
 
       <!-- Commit 3: Projects -->
