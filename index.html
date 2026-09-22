@@ -10,6 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
   :root {
     --bg: #F7F6F2;
@@ -37,7 +39,7 @@
 
   h1, h2, h3 { font-family: var(--serif); color: var(--ink); margin: 0; }
 
-  .layout { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+  .layout { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
 
   a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -48,6 +50,20 @@
   .page-header .role { color: var(--muted); font-size: 1rem; margin-top: 0.4rem; }
   .page-header .contact { color: var(--muted); font-size: 0.85rem; margin-top: 1.1rem; }
   .page-header .contact .sep { margin: 0 0.5em; color: var(--rule); }
+  .page-header .contact i { color: var(--accent); font-size: 0.8em; width: 1em; text-align: center; }
+  .page-header .resume-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.55rem 1.1rem;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .page-header .resume-link:hover { background: var(--ink); color: var(--bg); border-bottom: 1px solid var(--ink); }
+  .page-header .resume-link i { margin-right: 0.4em; }
 
   /* ---- Running nav ---- */
   .topnav {
@@ -140,12 +156,15 @@
     <h1 class="name">Suvash Shah Thakuri</h1>
     <p class="role">Software Engineer &middot; PhD Researcher</p>
     <p class="contact">
-      <a href="mailto:suvash.shah@ndsu.edu">suvash.shah@ndsu.edu</a>
+      <a href="mailto:suvash.shah@ndsu.edu"><i class="fa-solid fa-envelope" aria-hidden="true"></i> suvash.shah@ndsu.edu</a>
       <span class="sep">&middot;</span>
-      <a href="https://linkedin.com/in/sthakuri" target="_blank" rel="noopener">linkedin.com/in/sthakuri</a>
+      <a href="https://linkedin.com/in/sthakuri" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> linkedin.com/in/sthakuri</a>
       <span class="sep">&middot;</span>
-      Pittsburg, CA
+      <a href="https://sthakuri.com" target="_blank" rel="noopener"><i class="fa-solid fa-globe" aria-hidden="true"></i> sthakuri.com</a>
+      <span class="sep">&middot;</span>      
+      <a class="resume-link" href="SuvashShah_Resume.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> CV</a>
     </p>
+    
   </div>
 </header>
 
@@ -155,7 +174,7 @@
     <a href="#experience">Experience</a>
     <a href="#education">Education</a>
     <a href="#projects">Projects</a>
-    <a href="#resume">Resume</a>
+    <a href="#social">Social</a>
   </div>
 </nav>
 
@@ -164,10 +183,11 @@
   <section id="summary">
     <h2 class="label">Summary</h2>
     <p>
-      15+ years designing and modernizing enterprise systems across state government, automotive
-      manufacturing, and biotech research. Currently leading Audit Management System Modernization Project at the California State Controller's Office, and pursuing a
-      PhD in Computer Science at North Dakota State University with a research focus on software security
-      and systems modernization &mdash; specifically concurrency-aware C-to-Rust migration.
+      15+ years modernizing enterprise systems across state government, automotive, and biotech &mdash;
+      currently leading the Audit Management System modernization at the California State Controller's
+      Office, and pursuing a PhD at NDSU on software security and C-to-Rust migration. Outside of work,
+      I'm active in community life through Marpha, DeltaX, and past civic service on Pittsburg's
+      Community Advisory Commission.
     </p>
   </section>
 
@@ -285,10 +305,65 @@
     </div>
   </section>
 
-  <section id="resume">
-    <h2 class="label">Resume</h2>
-    <p>Download a PDF copy of my r&eacute;sum&eacute; for the full work history and details.</p>
-    <p><a href="SuvashShah_Resume.pdf" target="_blank" rel="noopener">Download r&eacute;sum&eacute; (PDF) &rarr;</a></p>
+  <section id="social">
+    <h2 class="label">Social Responsibilities</h2>
+
+    <div class="entry">
+      <div class="period">Resigned &mdash; Aug 2025</div>
+      <h3>Commissioner</h3>
+      <div class="org">Community Advisory Commission, City of Pittsburg, California</div>
+      <p class="desc">Improving the quality of lives of local citizens.</p>
+    </div>
+
+    <div class="entry">
+      <div class="period">Resigned &mdash; Sep 2025</div>
+      <h3>Project Coordinator</h3>
+      <div class="org">Sherpa Project, California</div>
+      <p class="desc">Filed a petition to the Governor of California to provide special recognition to the
+        Nepali Sherpas residing in California who have climbed Mt. Everest.</p>
+    </div>
+
+    <div class="entry">
+      <div class="period">Resigned &mdash; Oct 2025</div>
+      <h3>Treasurer</h3>
+      <div class="org">Nepali Association of Northern California (NANC)</div>
+      <p class="desc">Unite Nepali communities, promote Nepali culture.</p>
+    </div>
+
+    <div class="entry">
+      <div class="period">Not Active &mdash; Sep 2025</div>
+      <h3>Technical Advisor</h3>
+      <div class="org">Jeevan Vigyan USA</div>
+      <p class="desc">Mindfulness, meditation, and yoga.</p>
+    </div>
+
+    <div class="entry">
+      <div class="period">Not Active &mdash; Oct 2025</div>
+      <h3>Project Coordinator</h3>
+      <div class="org">Library Software Translation Project (Kolibri)</div>
+      <p class="desc">Translate Kolibri to the Nepali language.</p>
+    </div>
+
+    <div class="entry">
+      <div class="period">Active</div>
+      <h3>Founding Member</h3>
+      <div class="org">DeltaX, California</div>
+      <p class="desc">Local community organization.</p>
+    </div>
+
+    <div class="entry">
+      <div class="period">Closed &mdash; Apr 2026</div>
+      <h3>Co-Founder</h3>
+      <div class="org">Dream100, Nepal</div>
+      <p class="desc">Helping students of rural Nepal pursue their dream of higher education.</p>
+    </div>
+
+    <div class="entry">
+      <div class="period">Active</div>
+      <h3>Founder</h3>
+      <div class="org">Marpha, USA</div>
+      <p class="desc">Tech nonprofit organization building tools to solve social problems of rural communities.</p>
+    </div>
   </section>
 
 </main>
