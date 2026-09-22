@@ -118,6 +118,16 @@
   .entry .org { font-style: italic; color: var(--muted); font-size: 0.92rem; margin-bottom: 0.6rem; }
   .entry p.desc { font-size: 0.92rem; color: var(--ink); margin: 0; }
 
+  /* ---- Status pills (Social Responsibilities) ---- */
+  #social .entry .period {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.68rem;
+  }
+  #social .entry .period.status-active { background: var(--accent); color: #fff; }
+  #social .entry .period.status-inactive { background: var(--rule); color: var(--muted); }
+
   /* ---- Education ---- */
   .edu-item { padding: 1rem 0; border-top: 1px solid var(--rule); }
   .edu-item:first-of-type { border-top: none; padding-top: 0; }
@@ -309,14 +319,36 @@
     <h2 class="label">Social Responsibilities</h2>
 
     <div class="entry">
-      <div class="period">Resigned &mdash; Aug 2025</div>
+      <div class="period status-active">Active</div>
+      <h3>Project Lead, Community Needs Assessment</h3>
+      <div class="org">Nepali Association of Northern California (NANC) &mdash; funded by Contra Costa County, California</div>
+      <p class="desc">Leading a $40K county-funded Community Needs Assessment to identify gaps and
+        priorities for the Nepali community in Contra Costa County.</p>
+    </div>
+
+    <div class="entry">
+      <div class="period status-active">Active</div>
+      <h3>Founding Member</h3>
+      <div class="org">DeltaX, California</div>
+      <p class="desc">Local community organization.</p>
+    </div>
+
+    <div class="entry">
+      <div class="period status-active">Active</div>
+      <h3>Founder</h3>
+      <div class="org">Marpha, USA</div>
+      <p class="desc">Tech nonprofit organization building tools to solve social problems of rural communities.</p>
+    </div>
+
+    <div class="entry">
+      <div class="period status-inactive">Resigned &mdash; Aug 2025</div>
       <h3>Commissioner</h3>
       <div class="org">Community Advisory Commission, City of Pittsburg, California</div>
       <p class="desc">Improving the quality of lives of local citizens.</p>
     </div>
 
     <div class="entry">
-      <div class="period">Resigned &mdash; Sep 2025</div>
+      <div class="period status-inactive">Resigned &mdash; Sep 2025</div>
       <h3>Project Coordinator</h3>
       <div class="org">Sherpa Project, California</div>
       <p class="desc">Filed a petition to the Governor of California to provide special recognition to the
@@ -324,45 +356,32 @@
     </div>
 
     <div class="entry">
-      <div class="period">Resigned &mdash; Oct 2025</div>
+      <div class="period status-inactive">Resigned &mdash; Oct 2025</div>
       <h3>Treasurer</h3>
       <div class="org">Nepali Association of Northern California (NANC)</div>
-      <p class="desc">Unite Nepali communities, promote Nepali culture.</p>
+      <p class="desc">Managed $3M in assets for an 800+ member organization; united Nepali communities and
+        promoted Nepali culture.</p>
     </div>
 
     <div class="entry">
-      <div class="period">Not Active &mdash; Sep 2025</div>
+      <div class="period status-inactive">Not Active &mdash; Sep 2025</div>
       <h3>Technical Advisor</h3>
       <div class="org">Jeevan Vigyan USA</div>
       <p class="desc">Mindfulness, meditation, and yoga.</p>
     </div>
 
     <div class="entry">
-      <div class="period">Not Active &mdash; Oct 2025</div>
+      <div class="period status-inactive">Not Active &mdash; Oct 2025</div>
       <h3>Project Coordinator</h3>
       <div class="org">Library Software Translation Project (Kolibri)</div>
       <p class="desc">Translate Kolibri to the Nepali language.</p>
     </div>
 
     <div class="entry">
-      <div class="period">Active</div>
-      <h3>Founding Member</h3>
-      <div class="org">DeltaX, California</div>
-      <p class="desc">Local community organization.</p>
-    </div>
-
-    <div class="entry">
-      <div class="period">Closed &mdash; Apr 2026</div>
+      <div class="period status-inactive">Closed &mdash; Apr 2026</div>
       <h3>Co-Founder</h3>
       <div class="org">Dream100, Nepal</div>
       <p class="desc">Helping students of rural Nepal pursue their dream of higher education.</p>
-    </div>
-
-    <div class="entry">
-      <div class="period">Active</div>
-      <h3>Founder</h3>
-      <div class="org">Marpha, USA</div>
-      <p class="desc">Tech nonprofit organization building tools to solve social problems of rural communities.</p>
     </div>
   </section>
 
